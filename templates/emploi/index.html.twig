@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emploi index{% endblock %}
+
+{% block body %}
+    <h1>Emploi</h1>
+    <form method="post" action="{{ path('emploi_trie') }}">
+    <h5>Trier par: <select name="trie">
+            <option value="nomEmploi">Nom de l'emploi</option>
+            <option value="dispo">Disponibilite</option>
+            <option value="ageMin">Age minimum requis pour l'emploi</option>
+            <option value="ageMax">Age maximum requis pour l'emploi</option>
+        </select> <input type="submit" value="Valider"></h5></form>
+    <div class="section search">
+        <h2 class="title">Rechercher</h2>
+        <form action="{{ path('searchAll') }}" method="post">
+            <input type="text" id="recherche" style="width: 80%;" name="mot" class="input is-default" placeholder="Search..."><button  style="float: right;width: 20%;" type="submit" class="button primary-button"><i class="fa fa-search"></i> </button>
+        </form>
+        <ul id="entitiesNav">
+            <div>
+                <a href="#" class="title" style="font-size: small">Resultat de la recherche<span class="fa arrow"></span> </a>
+
+            </div>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            $("#recherche").keyup(function(sssSSSS){
+                var minlength=1;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+                if(value.length>=minlength){
+                    $.ajax({
+                        url: "{{ path('search') }}",
+                        method: "GET",
+                        data: {
+                            'q': value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            if(value===$(that).val()){
+                                var result =JSON.parse(msg);
+                                $.each(result, function(key,arr){
+                                    $.each(arr, function(id,value){
+                                        if (key==='posts'){
+                                            if (id!=='error'){
+                                                entitySelector.append('<div style="cursor: pointer;position: relative;left: -35px;"><a href="/emploi/'+id+'">'+'<b class="title" style="font-size: small;position: relative;bottom: 15px;">'+value[0]+'</b></a></div>');
+                                            }else{
+                                                entitySelector.append('<div class="errorLi" style="font-size: small">'+value+'</div>')
+                                            }
+                                        }
+                                    })
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdEmploi</th>
+                <th>Experience</th>
+                <th>NiveauEtude</th>
+                <th>Disponibilite</th>
+                <th>Sexe</th>
+                <th>DateDebut</th>
+                <th>Responsabilite</th>
+                <th>Agemin</th>
+                <th>Agemax</th>
+                <th>NomEmploi</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for emploi in emplois %}
+            <tr>
+                <td>{{ emploi.idEmploi }}</td>
+                <td>{{ emploi.experience }}</td>
+                <td>{{ emploi.niveauEtude }}</td>
+                <td>{{ emploi.disponibilite }}</td>
+                <td>{{ emploi.sexe }}</td>
+                <td>{{ emploi.dateDebut ? emploi.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ emploi.responsabilite }}</td>
+                <td>{{ emploi.agemin }}</td>
+                <td>{{ emploi.agemax }}</td>
+                <td>{{ emploi.nomEmploi }}</td>
+                <td>
+                    <a href="{{ path('emploi_show', {'idEmploi': emploi.idEmploi}) }}">show</a>
+                    <a href="{{ path('emploi_edit', {'idEmploi': emploi.idEmploi}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        {{ knp_pagination_render(emplois) }}
+        </tbody>
+    </table>
+
+    <a href="{{ path('emploi_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emploi{% endblock %}
+
+{% block body %}
+    <h1>Emploi</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdEmploi</th>
+                <td>{{ emploi.idEmploi }}</td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>{{ emploi.experience }}</td>
+            </tr>
+            <tr>
+                <th>NiveauEtude</th>
+                <td>{{ emploi.niveauEtude }}</td>
+            </tr>
+            <tr>
+                <th>Disponibilite</th>
+                <td>{{ emploi.disponibilite }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ emploi.sexe }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ emploi.dateDebut ? emploi.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Responsabilite</th>
+                <td>{{ emploi.responsabilite }}</td>
+            </tr>
+            <tr>
+                <th>Agemin</th>
+                <td>{{ emploi.agemin }}</td>
+            </tr>
+            <tr>
+                <th>Agemax</th>
+                <td>{{ emploi.agemax }}</td>
+            </tr>
+            <tr>
+                <th>NomEmploi</th>
+                <td>{{ emploi.nomEmploi }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('emploi_index') }}">back to list</a>
+
+    <a href="{{ path('emploi_edit', {'idEmploi': emploi.idEmploi}) }}">edit</a>
+
+    {{ include('emploi/_delete_form.html.twig') }}
+{% endblock %}

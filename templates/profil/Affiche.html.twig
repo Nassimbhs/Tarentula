@@ -1,0 +1,97 @@
+{% extends 'backend.html.twig' %}
+
+
+    {% block titre %}
+        Liste des profiles
+    {% endblock %}
+
+    {% block nav %}
+        gestion des profiles
+    {% endblock %}
+
+    {% block head %}
+        gestion des profiles
+    {% endblock %}
+
+{% block body %}
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nationalite</th>
+            <th>Competence</th>
+            <th> Dernier_Diplome</th>
+            {# <th>Date_obtention</th> #}
+            <th> Dernier emploi</th>
+            <th>Domaine</th>
+            <th>Poste</th>
+            {# <th>Description poste</th> #}
+            <th>Date_fin</th>
+            <th>langue</th> {# langue et niveau #}
+            <th>Adresse</th> {# pays region ville #}
+            <th>Details</th>
+            <th>Supprimer</th>
+        </tr>
+        {% for p in profil %}
+            <tr>
+
+                <td>
+                    {{ p.id }}
+                </td>
+                <td>
+                    {{ p.nationalite }}
+                </td>
+                <td>
+                    {{ p.competence }}
+                </td>
+                <td>
+                    {{ p.dernierDiplome }}
+                </td>
+                <td>
+                    {{ p.dernierEmploi }}
+                </td>
+                <td>
+                    {{ p.domaineActivite }}
+                </td>
+                <td>
+                    {{ p.poste }}
+                </td>
+                <td>
+                    {{ p.dateFin|date("d-m-y") }}
+                </td>
+                <td>
+                    {{ p.langue~" "~p.niveauLangue }}
+                </td>
+
+                <td>
+                    {{ p.pays~" "~p.region~" "~p.ville }}
+                </td>
+                <td>
+                    <a href="{{ path('profileUpdate',{'id':p.id}) }}">Update</a>
+                </td>
+                <td>
+                    <a href="{{ path('profileSupprime',{'id':p.id}) }}">Supprimer</a>
+                </td>
+
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+    </body>
+    </html>
+
+
+{% endblock %}

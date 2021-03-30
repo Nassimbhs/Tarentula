@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block title %}  {% trans %}Contacts {% endtrans %} {% endblock %}
+
+{% block body %}
+    <h1>{% trans %}Formulaire Contacts {% endtrans %}</h1>
+    {{ form(contactform) }}
+
+{% endblock %}

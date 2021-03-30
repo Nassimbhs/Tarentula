@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FonctionPrincipale{% endblock %}
+
+{% block body %}
+    <h1>FonctionPrincipale</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdFonction</th>
+                <td>{{ fonction_principale.idFonction }}</td>
+            </tr>
+            <tr>
+                <th>NomFonction</th>
+                <td>{{ fonction_principale.nomFonction }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('fonction_principale_index') }}">back to list</a>
+
+    <a href="{{ path('fonction_principale_edit', {'idFonction': fonction_principale.idFonction}) }}">edit</a>
+
+    {{ include('fonction_principale/_delete_form.html.twig') }}
+{% endblock %}

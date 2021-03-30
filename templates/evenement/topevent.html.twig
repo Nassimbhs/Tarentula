@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% block body2 %}
+{% endblock %}
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-xl-12">
+                <!-- Section Headline -->
+                <div class="section-headline margin-top-0 margin-bottom-25">
+                    <h3>TOP EVENEMENTS</h3>
+
+                </div>
+            </div>
+
+            <div class="col-xl-12">
+                <div class="default-slick-carousel freelancers-container freelancers-grid-layout">
+                    {%  for event in evenement %}
+                        {%if event.note >= 3%}
+
+                            <!--Freelancer -->
+                            <div class="freelancer">
+
+                                <!-- Overview -->
+                                <div class="freelancer-overview">
+                                    <div class="freelancer-overview-inner">
+
+                                        <!-- Bookmark Icon -->
+                                        <span class="bookmark-icon" onclick="redirectIt(this)" href="{{ path('note' , {'id':event.id})}}"> </span>
+
+
+
+                                        <!-- Avatar -->
+                                        <div class="freelancer-avatar">
+                                            <div class="verified-badge"></div>
+                                            <a href="single-freelancer-profile.html"><img src="{{ asset('images/evenement/'~ event.image) }}" alt=""></a>
+                                        </div>
+
+                                        <!-- Name -->
+                                        <div class="freelancer-name">
+                                            <h4><a href="single-freelancer-profile.html">{{ event.nom  }} <img class="flag" src="/images/flags/gb.svg" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+                                            <span>{{  event.organisateur }} </span>
+                                        </div>
+
+                                        <!-- Rating -->
+                                        <div class="freelancer-rating">
+                                            {%if event.note is same as 1%}
+                                                <div class="star-rating" data-rating="1.0"></div>
+
+                                            {%elseif event.note is same as 2%}
+
+                                                <div class="star-rating" data-rating="2.0"></div>
+                                            {%elseif event.note is same as 3%}
+
+                                                <div class="star-rating" data-rating="3.0"></div>
+                                            {%elseif event.note is same as 4%}
+
+                                                <div class="star-rating" data-rating="4.0"></div>
+                                            {%else%}
+
+                                                <div class="star-rating" data-rating="5.0"></div>
+
+
+
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Details -->
+                                <div class="freelancer-details">
+                                    <div class="freelancer-details-list">
+                                        <ul>
+                                            <li>Location <strong><i class="icon-material-outline-location-on"></i> {{ event.lieu  }}</strong></li>
+                                            <li>Date <strong> {{  event.date|date('Y-m-d') }}</strong></li>
+                                            <li>Secteur <strong>{{ event.type.secteur }}</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Freelancer / End -->
+                        {% endif %}
+                    {% endfor %}
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- Highest Rated Freelancers / End-->
+{% endblock %}
+{% block body3 %}
+{% endblock %}
+
+

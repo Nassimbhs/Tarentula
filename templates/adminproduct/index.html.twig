@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin!{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Row -->
+    <div class="row">
+
+    <!-- Dashboard Box -->
+    <div class="col-xl-12">
+        <div class="dashboard-box margin-top-0">
+
+            <!-- Headline -->
+            <div class="headline">
+                <h3><i class="icon-material-outline-business-center"></i> Liste des produits</h3>
+            </div>
+            <div class="content">
+                {% for p in products %}
+                    <ul class="dashboard-box-list">
+                        <li>
+                            <!-- Job Listing -->
+                            <div class="job-listing">
+
+                                <!-- Job Listing Details -->
+                                <div class="job-listing-details">
+
+                                    <!-- Logo -->
+                                    <a href="#" class="job-listing-company-logo">
+                                        <img src="\images\evenement\{{ p.image }}" alt="">
+                                    </a>
+
+                                    <!-- Details -->
+                                    <div class="job-listing-description">
+                                        <h3 class="job-listing-title"><a
+                                                    href="{{ path('detail', {'id':p.id}) }}">{{ p.nom }}</a></h3>
+
+                                        <!-- Job Listing Footer -->
+                                        <div class="job-listing-footer">
+                                            <ul>
+                                                <li><i class="icon-material-outline-business"></i> Coffee</li>
+                                                <li><i class="icon-material-outline-location-on"></i> San Francisco</li>
+                                                <li><i class="icon-material-outline-business-center"></i> Full Time</li>
+                                                <li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="buttons-to-right" style="opacity: 1">
+                                <a href="#small-dialog" class="popup-with-zoom-anim" title="Modifier"
+                                   data-tippy-placement="left">Modifer
+                                    <i class="icon-feather-edit-2"></i></a>
+                                <a href="#small-dialog-1" class="popup-with-zoom-anim" title="Supprimer"
+                                   data-tippy-placement="right">Supprimer
+                                    <i class="icon-feather-trash-2"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                {% endfor %}
+                {{ knp_pagination_render(products) }}
+            </div>
+        </div>
+    </div>
+
+{% for p in products %}
+    <div id="small-dialog" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
+
+        <!--Tabs -->
+        <div class="sign-in-form">
+
+            <ul class="popup-tabs-nav">
+                <li><a href="#tab">Modifier</a></li>
+            </ul>
+
+            <div class="popup-tabs-container">
+
+                <!-- Tab -->
+                <div class="popup-tab-content" id="tab">
+
+                    <!-- Welcome Text -->
+                    <div class="welcome-text">
+                        <h3>Voulez-vous modifier ce produit ?</h3>
+                    </div>
+
+                    <!-- Form -->
+                    <form method="post" id="apply-now-form">
+
+                        <div class="DeleteButton">
+
+                        </div>
+
+                    </form>
+
+                    <!-- Button -->
+                    <a href="{{ path('update', {'id':p.id}) }}" class="button margin-top-35 full-width button-sliding-icon ripple-effect" type="submit"
+                       form="apply-now-form">Modifier <i class="icon-material-outline-arrow-right-alt"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="small-dialog-1" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
+
+        <!--Tabs -->
+        <div class="sign-in-form">
+
+            <ul class="popup-tabs-nav">
+                <li><a href="#tab">Supprimer</a></li>
+            </ul>
+
+            <div class="popup-tabs-container">
+
+                <!-- Tab -->
+                <div class="popup-tab-content" id="tab">
+
+                    <!-- Welcome Text -->
+                    <div class="welcome-text">
+                        <h3>Voulez-vous supprimer ce produit ?</h3>
+                    </div>
+
+                    <!-- Form -->
+                    <form method="post" id="apply-now-form">
+
+                        <div class="DeleteButton">
+
+                        </div>
+
+                    </form>
+
+                    <!-- Button -->
+                    <a href="{{ path('delete', {'id':p.id}) }}" class="button margin-top-35 full-width button-sliding-icon ripple-effect" type="submit"
+                       form="apply-now-form">Supprimer <i class="icon-material-outline-arrow-right-alt"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+{% endblock %}

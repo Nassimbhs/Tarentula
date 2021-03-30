@@ -1,0 +1,77 @@
+{% extends 'backend.html.twig' %}
+    {% block titre %}
+        {% trans %} Liste des Evenements {% endtrans %}
+    {% endblock %}
+    {% block head %}
+        {% trans %}Gestion des Evenements {% endtrans %}
+    {% endblock %}
+{% block body %}
+    {% block body2 %}
+    {% endblock %}
+
+
+    <table>
+<tr>
+    <td><h1>LISTE DES EVENEMENTS</h1></td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td>
+        <form method="post" action="{{ path('addevenement') }}">
+        <input type="submit" value="Ajouter">
+        </form>
+    </td>
+</tr>
+    </table>
+    <br>
+    <form method="post" action="{{ path('recherche') }}">
+    <label>Recherche</label>
+ <input type="text" name="search"> <input type="submit" value="recherche">
+    </form>
+    <table >
+        <tr>
+            <th>ID</th>
+            <th>NOM</th>
+            <th>organisateur</th>
+            <th>lieu</th>
+            <th>date</th>
+            <th>type</th>
+            <th>note</th>
+            <th>image</th>
+            <th>Update</th>
+            <th>Supprimer</th>
+
+
+        </tr>
+
+        {%  for event in evenement %}
+
+            <tr>
+                <td> {{  event.id }} </td>
+                <td> {{ event.nom  }}  </td>
+                <td> {{  event.organisateur }} </td>
+                <td> {{ event.lieu  }}  </td>
+                <td> {{  event.date|date('Y-m-d') }} </td>
+                <td> {{ event.type.secteur }}  </td>
+                <td> {{ event.note }}  </td>
+                <td><img src="{{ asset('images/evenement/'~ event.image) }}" alt="image" width="150" height="100" /></td>
+                <td>
+                    <a href = "{{ path('modifierevenement' , {'id':event.id})   }}">  Update </a>
+                </td>
+                <td>
+                    <a href = "{{ path('supprimerevenement' , {'id':event.id})   }}">  Supprimer </a>
+                </td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+{% endblock %}
+
+{% block body3 %}
+{% endblock %}
+
+

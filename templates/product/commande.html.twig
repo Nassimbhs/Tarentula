@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <center><h1>FINALISATION DE LA COMMANDE</h1></center>
+    {{ form_start(formc,{'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ form_widget(formc) }}
+    {{ form_end(formc) }}
+
+{% endblock %}

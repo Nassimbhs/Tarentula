@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}Offre{% endblock %}
+
+{% block body %}
+    <a href="{{ path('offre_index') }}">back to list</a>
+    </br>
+    <h1>Offre  </h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Numoffre</th>
+                <td>{{ offre.numoffre }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ offre.dateCreation ? offre.dateCreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateExpiration</th>
+                <td>{{ offre.dateExpiration ? offre.dateExpiration|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Disponibilite</th>
+                <td>{{ offre.disponibilite }}</td>
+            </tr>
+        </tbody>
+        <br>
+    </table>
+
+    {{ include('offre/_delete_form.html.twig') }}
+{% endblock %}

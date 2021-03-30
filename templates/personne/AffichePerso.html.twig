@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% trans %} Details{% endtrans %} {% endblock %}
+
+{% block body %}
+    <h1>{% trans %}Details {% endtrans %} {{ p.nom ~" "~ p.prenom }}</h1>
+    <br>
+    <table>
+
+        <tr>
+            <p>{% trans %} ID{% endtrans %} : {{ p.id }}</p>
+        </tr>
+
+        <tr>
+           <p>{% trans %} Email{% endtrans %} : {{ p.email }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %}Password {% endtrans %} : {{ p.password}}</p>
+        </tr>
+
+        <tr>
+            <p> {% trans %} Telephone{% endtrans %} : {{ p.telephone }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %}Adresse {% endtrans %} : {{ p.adresse }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %}Date Inscription {% endtrans %} : {{ p.dateInscription|date("d-m-y") }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %} Sexe{% endtrans %} : {{ p.sexe }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %} Age{% endtrans %}  : {{ p.age }} </p>
+        </tr>
+
+        <tr>
+            <p>{% trans %} Date Naissance{% endtrans %} : {{ p.dateNaissance|date("d-m-y") }}</p>
+        </tr>
+        <br>
+
+    </table>
+
+{% endblock %}

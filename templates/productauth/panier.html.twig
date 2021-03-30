@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <body class="gray">
+
+    <!-- Wrapper -->
+<div id="wrapper">
+
+    <div class="clearfix"></div>
+    <!-- Header Container / End -->
+
+    <!-- Spacer -->
+    <div class="margin-top-90"></div>
+    <!-- Spacer / End-->
+
+    <!-- Page Content
+    ================================================== -->
+    <div class="container">
+        {% if items | length > 0 %}
+            <table class="basic-table">
+                <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Supression</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.product.nom }}</td>
+                        <td>{{ item.product.prix }}</td>
+                        <td>{{ item.quantite }}</td>
+                        <td>{{ item.product.prix * item.quantite }}</td>
+                        <td>
+                            <a href="{{ path('removepanier',{'id': item.product.id}) }}" class="btn btn-info">
+                                <i class="fa icon-feather-trash-2">Supprimer</i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">
+                        Total :
+                    </td>
+                    <td>
+                        {{ total }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-right">
+                        <a href="{{ path('commande') }}" class="button full-width margin-top-20">
+                            Finaliser votre commande
+                        </a>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        {% else %}
+            <center>
+                <p style="font-size: 30px" class="notification error closeable">Le Panier est vide ! </p>
+            </center>
+        {% endif %}
+    </div>
+{% endblock %}

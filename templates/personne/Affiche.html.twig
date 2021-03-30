@@ -1,0 +1,124 @@
+{% extends 'backend.html.twig' %}
+
+
+   {% block titre %}
+       {% trans %} Liste des Candidats {% endtrans %}
+   {% endblock %}
+{% block head %}
+    {% trans %}Gestion des Candidats {% endtrans %}
+{% endblock %}
+
+
+{% block body %}
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+<input type="text" id="search" class="form-control" placeholder="Search" >
+<div>
+    {% if data %}
+    <table id="t">
+<tr>
+    <th> {% trans %}Email {% endtrans %}</th>
+    <th>  {% trans %}Nom {% endtrans %}</th>
+    <th> {% trans %}Prenom {% endtrans %}</th>
+    <th>{% trans %}Details {% endtrans %}</th>
+    <th>{% trans %}Notifier {% endtrans %}</th>
+    <th>{% trans %} Update{% endtrans %}</th>
+    <th>{% trans %} Supprimer{% endtrans %}</th>
+</tr>
+         <tbody id="all">
+         {#  dump(data) #}
+        {% for p in data %}
+        <tr>
+            <td>
+                {{ p.email }}
+            </td>
+            <td>
+                {{ p.nom }}
+            </td>
+            <td>
+                {{ p.prenom }}
+            </td>
+            <td>
+                <a href="{{ path('AffichePerso',{'id':p.id}) }}"> {% trans %}Details {% endtrans %}</a>
+            </td>
+            <td>
+                <a href="{{ path('contactMail',{'id':p.id}) }}">{% trans %} Notifier{% endtrans %}</a>
+            </td>
+            <td>
+                <a href="{{ path('personneUpdate',{'id':p.id}) }}"> {% trans %} Update{% endtrans %}</a>
+            </td>
+<td>
+    <a href="{{ path('s',{'id':p.id}) }}">{% trans %} Supprimer{% endtrans %}</a>
+</td>
+        </tr>
+        {% endfor %}
+             </tbody>
+            <tbody id="search">
+            </tbody>
+
+
+    </table>
+    {% else %}
+        <p>{% trans %} Liste vide {% endtrans %}</p>
+    {% endif %}
+    </div>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script>
+    $( document ).ready(function() {
+        $("#search").keyup(function(e){
+            /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+            var value = $(this).val();
+            /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+            $.ajax({
+                /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                url : "{{ path('searchPersonnex') }}",
+                /* La méthode utilisée pour transférer les données est GET */
+                type : 'GET',
+                /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                data: {
+                    'searchValue' : value
+                },
+                /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                success : function(retour){
+                    if(retour){
+                        $('#t tbody#search').empty();
+                        $.each(JSON.parse(retour), function(i, obj) {
+                            $('#t tbody#all').hide();
+                            $('#t tbody#search').append('<tr><td>    '+obj.email+'  </td><td>    '+obj.nom+'  </td><td>'+obj.prenom+' </td><td> <a href="{{ path('AffichePerso', {'id': '+obj.id+' }) }}" > Details </a></td><td> <a href="{{ path('contactMail', {'id': '+obj.id+'}) }}" > Notify </a></td><td><a href="{{ path('personneUpdate', {'id': '+obj.id+'}) }}"> Update </a> </td><td> <a href="{{ path('s', {'id': '+obj.id+'}) }}" > Delete </a> </td> <tr>');
+                        });
+                    }
+                    else
+                    {
+                        $('#t tbody#all').show();
+                        $('#t tbody#search').empty();
+                        $('#t tbody#search').fadeIn('fast');
+                    }
+                },
+            });
+            return false;
+        });
+    });
+</script>
+
+    </body>
+    </html>
+{% endblock %}
+
+
+
+
+
+{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script> #}
+
+

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% block body2 %}
+{% endblock %}
+    <!-- Features Cities -->
+    <div class="section margin-top-65 margin-bottom-65">
+        <div class="container">
+
+
+            <div class="row">
+
+                <!-- Section Headline -->
+                <div class="col-xl-12">
+                    <div class="section-headline centered margin-top-0 margin-bottom-45">
+                        <h3>Il ne vous reste plus qu'a vous decider !</h3>
+                    </div>
+                </div>
+                {%  for event in evenement %}
+                <div class="col-xl-3 col-md-6">
+                    <div>
+                        <span class="bookmark-icon" onclick="redirectIt(this)" href="{{ path('note' , {'id':event.id})}}"> </span>
+                    </div>
+                    <!-- Photo Box -->
+                    <a href="{{ path('details',{'id':event.id})}}" class="photo-box" data-background-image="{{ asset('images/evenement/'~ event.image) }}" alt="">
+                        <div class="photo-box-content">
+
+                            <h3>{{ event.nom  }} </h3>
+                            <span>{{ event.lieu }} </span>
+                        </div>
+                    </a>
+                </div> {% endfor %}</div></div>
+
+
+
+
+
+
+    </div>
+    <!-- Features Cities / End -->
+
+
+
+{% endblock %}
+{% block body3 %}
+{% endblock %}

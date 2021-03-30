@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit FonctionPrincipale{% endblock %}
+
+{% block body %}
+    <h1>Edit FonctionPrincipale</h1>
+
+    {{ include('fonction_principale/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('fonction_principale_index') }}">back to list</a>
+
+    {{ include('fonction_principale/_delete_form.html.twig') }}
+{% endblock %}

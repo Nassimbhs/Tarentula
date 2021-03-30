@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Sovbi_8" resname="Espace personnel">
+        <source>Espace personnel</source>
+        <target>Personal space</target>
+      </trans-unit>
+      <trans-unit id="7TVWhVG" resname="Offres d'emploi">
+        <source>Offres d'emploi</source>
+        <target>Jobs</target>
+      </trans-unit>
+      <trans-unit id="_AdZwnY" resname="Evènements">
+        <source>Evènements</source>
+        <target>Events</target>
+      </trans-unit>
+      <trans-unit id="XImh4Cy" resname="Entretiens">
+        <source>Entretiens</source>
+        <target>Interviews</target>
+      </trans-unit>
+      <trans-unit id="IJA9ADD" resname="Magasin">
+        <source>Magasin</source>
+        <target>Store</target>
+      </trans-unit>
+      <trans-unit id="Z7aWRoY" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
+      <trans-unit id="jDagaih" resname="Gestion entreprises">
+        <source>Gestion entreprises</source>
+        <target>Business management</target>
+      </trans-unit>
+      <trans-unit id="Hdx3l1k" resname="Gestion candidat">
+        <source>Gestion candidat</source>
+        <target>Candidate management</target>
+      </trans-unit>
+      <trans-unit id="MKwBbJN" resname="Gestion profiles">
+        <source>Gestion profiles</source>
+        <target>Profiles management</target>
+      </trans-unit>
+      <trans-unit id="dKiDoDe" resname="Settings">
+        <source>Settings</source>
+        <target>Settings</target>
+      </trans-unit>
+      <trans-unit id="z8EZhO1" resname="Navigation Dashboard">
+        <source>Navigation Dashboard</source>
+        <target>Navigation Dashboard</target>
+      </trans-unit>
+      <trans-unit id="I9OTi17" resname="Utilisateurs">
+        <source>Utilisateurs</source>
+        <target>Users</target>
+      </trans-unit>
+      <trans-unit id="hdPOzIT" resname="Gestion candidats">
+        <source>Gestion candidats</source>
+        <target>Candidate management</target>
+      </trans-unit>
+      <trans-unit id="sR.k6o6" resname="Parametres">
+        <source>Parametres</source>
+        <target>Settings</target>
+      </trans-unit>
+      <trans-unit id="DL02fX6" resname="Deconnexion">
+        <source>Deconnexion</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="UzFhc1Y" resname="Accueil">
+        <source>Accueil</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="hsLOoU4" resname=". All Rights Reserved.">
+        <source>. All Rights Reserved.</source>
+        <target>. All Rights Reserved.</target>
+      </trans-unit>
+      <trans-unit id="QaxFjZ7" resname="Gestion des Candidats">
+        <source>Gestion des Candidats</source>
+        <target>Candidate management</target>
+      </trans-unit>
+      <trans-unit id="Cb9PPYh" resname="Gestion Utilisateurs">
+        <source>Gestion Utilisateurs</source>
+        <target>__Gestion Utilisateurs</target>
+      </trans-unit>
+      <trans-unit id="9iRxjB9" resname="Se connecter / S'inscrire">
+        <source>Se connecter / S'inscrire</source>
+        <target>Login / Register</target>
+      </trans-unit>
+      <trans-unit id="5JXVO5Z" resname="Français">
+        <source>Français</source>
+        <target>French</target>
+      </trans-unit>
+      <trans-unit id="uhGL9.y" resname="English">
+        <source>English</source>
+        <target>English</target>
+      </trans-unit>
+      <trans-unit id="lLOCthu" resname="Español">
+        <source>Español</source>
+        <target>Spanish</target>
+      </trans-unit>
+      <trans-unit id="9J83Dz1" resname="Arabe">
+        <source>Arabe</source>
+        <target>Arabe</target>
+      </trans-unit>
+      <trans-unit id="nCgsxyj" resname="Candidats">
+        <source>Candidats</source>
+        <target>Candidates</target>
+      </trans-unit>
+      <trans-unit id="UxDJeXX" resname="Rechercher jobs">
+        <source>Rechercher jobs</source>
+        <target>Search jobs</target>
+      </trans-unit>
+      <trans-unit id="9.j2ItE" resname="Ajouter profil">
+        <source>Ajouter profil</source>
+        <target>Add profile</target>
+      </trans-unit>
+      <trans-unit id="jdSaZ3Q" resname="Alertes jobs">
+        <source>Alertes jobs</source>
+        <target>Job alerts</target>
+      </trans-unit>
+      <trans-unit id="XA8Pkqi" resname="My Bookmarks">
+        <source>My Bookmarks</source>
+        <target>My Bookmarks</target>
+      </trans-unit>
+      <trans-unit id="aTZ8jQj" resname="Employeurs">
+        <source>Employeurs</source>
+        <target>Employers</target>
+      </trans-unit>
+      <trans-unit id="n0em9Sn" resname="Rechercher candidats">
+        <source>Rechercher candidats</source>
+        <target>Search candidates</target>
+      </trans-unit>
+      <trans-unit id="0Oa_jHE" resname="Poster un job">
+        <source>Poster un job</source>
+        <target>Post a job</target>
+      </trans-unit>
+      <trans-unit id=".W460sh" resname="Poster une tache">
+        <source>Poster une tache</source>
+        <target>Poster a task</target>
+      </trans-unit>
+      <trans-unit id="HYBSE8e" resname="Plans &amp; Prix">
+        <source>Plans &amp; Prix</source>
+        <target><![CDATA[Plans & Price]]></target>
+      </trans-unit>
+      <trans-unit id="mFULZxE" resname="Liens utiles">
+        <source>Liens utiles</source>
+        <target>Liens utiles</target>
+      </trans-unit>
+      <trans-unit id="tFBkXev" resname="Contacts">
+        <source>Contacts</source>
+        <target>Contacts</target>
+      </trans-unit>
+      <trans-unit id="zRkeUSu" resname="Politique de confidentialite">
+        <source>Politique de confidentialite</source>
+        <target>__Politique de confidentialite</target>
+      </trans-unit>
+      <trans-unit id="ZIinD8v" resname="Conditions d'usage">
+        <source>Conditions d'usage</source>
+        <target>Politique de confidentialite</target>
+      </trans-unit>
+      <trans-unit id="2s1HYZp" resname="Compte">
+        <source>Compte</source>
+        <target>Account</target>
+      </trans-unit>
+      <trans-unit id="CsPSyzA" resname="Se connecter">
+        <source>Se connecter</source>
+        <target>Log in</target>
+      </trans-unit>
+      <trans-unit id="KPRXHyi" resname="Mon compte">
+        <source>Mon compte</source>
+        <target>My Account</target>
+      </trans-unit>
+      <trans-unit id="esCh7WH" resname="S'abonner a la Newsletter">
+        <source>S'abonner a la Newsletter</source>
+        <target>Subscribe to the newsletter</target>
+      </trans-unit>
+      <trans-unit id="3khHPOq" resname="Actualités hebdomadaires, analyses et conseils de pointe sur la recherche d'emploi.">
+        <source>Actualités hebdomadaires, analyses et conseils de pointe sur la recherche d'emploi.</source>
+        <target>Weekly news, analysis and cutting edge job search advice.</target>
+      </trans-unit>
+      <trans-unit id="m4P2lkZ" resname="Entrer votre adresse mail">
+        <source>Entrer votre adresse mail</source>
+        <target>Enter your email address</target>
+      </trans-unit>
+      <trans-unit id="BR9Qa5D" resname="All Rights Reserved.">
+        <source>All Rights Reserved.</source>
+        <target>All Rights Reserved.</target>
+      </trans-unit>
+      <trans-unit id="PCX0_17" resname="S'inscrire">
+        <source>S'inscrire</source>
+        <target>Sign in</target>
+      </trans-unit>
+      <trans-unit id="ndO6Y0i" resname="Nous sommes ravis de vous revoir!">
+        <source>Nous sommes ravis de vous revoir!</source>
+        <target>We are delighted to see you again!</target>
+      </trans-unit>
+      <trans-unit id="9rgIU4C" resname="Vous n'avez pas de compte?">
+        <source>Vous n'avez pas de compte?</source>
+        <target>You do not have an account?</target>
+      </trans-unit>
+      <trans-unit id="Dk.mcNq" resname="Addresse Email">
+        <source>Addresse Email</source>
+        <target>E-mail adress</target>
+      </trans-unit>
+      <trans-unit id=".5yLjAZ" resname="Mot de passe">
+        <source>Mot de passe</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="AzK3fs9" resname="mot de passe oublié?">
+        <source>mot de passe oublié?</source>
+        <target>Forgot your password?</target>
+      </trans-unit>
+      <trans-unit id="Le1KPuZ" resname="Log In">
+        <source>Log In</source>
+        <target>Log In</target>
+      </trans-unit>
+      <trans-unit id="cXVRejc" resname="or">
+        <source>or</source>
+        <target>or</target>
+      </trans-unit>
+      <trans-unit id="9c33n_t" resname="Se connecter via Facebook">
+        <source>Se connecter via Facebook</source>
+        <target>Log in via Facebook</target>
+      </trans-unit>
+      <trans-unit id="ekLTR_f" resname="Se connecter via Google+">
+        <source>Se connecter via Google+</source>
+        <target>Log in via Google+</target>
+      </trans-unit>
+      <trans-unit id="e4c7iVg" resname="Créons votre compte!">
+        <source>Créons votre compte!</source>
+        <target>Let's create your account!</target>
+      </trans-unit>
+      <trans-unit id="SwAMHFv" resname="Entreprise">
+        <source>Entreprise</source>
+        <target>company</target>
+      </trans-unit>
+      <trans-unit id="fLwO.tk" resname="Candidat">
+        <source>Candidat</source>
+        <target>Candidate</target>
+      </trans-unit>
+      <trans-unit id="eNf2TnZ" resname="S'inscrire via Facebook">
+        <source>S'inscrire via Facebook</source>
+        <target>Log in via Facebook</target>
+      </trans-unit>
+      <trans-unit id="Q1r3uE2" resname="S'inscrire  via Google+">
+        <source>S'inscrire  via Google+</source>
+        <target>Log in via Google+</target>
+      </trans-unit>
+      <trans-unit id="E.SbXPA" resname="Hire experts or be hired for any job, any time.">
+        <source>Hire experts or be hired for any job, any time.</source>
+        <target>Hire experts or be hired for any job, any time.</target>
+      </trans-unit>
+      <trans-unit id=".eZUNFD" resname="Thousands of small businesses use">
+        <source>Thousands of small businesses use</source>
+        <target>Thousands of small businesses use</target>
+      </trans-unit>
+      <trans-unit id="2sOHCXW" resname="to turn their ideas into reality.">
+        <source>to turn their ideas into reality.</source>
+        <target>to turn their ideas into reality.</target>
+      </trans-unit>
+      <trans-unit id="kfRRFcN" resname="Where?">
+        <source>Where?</source>
+        <target>Where?</target>
+      </trans-unit>
+      <trans-unit id="47DEQpj" resname="">
+        <source></source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="1xakQHI" resname="Online Job">
+        <source>Online Job</source>
+        <target>Online Job</target>
+      </trans-unit>
+      <trans-unit id="9LAZxoj" resname="What job you want?">
+        <source>What job you want?</source>
+        <target>What job you want?</target>
+      </trans-unit>
+      <trans-unit id="GLhENyo" resname="Job Title or Keywords">
+        <source>Job Title or Keywords</source>
+        <target>Job Title or Keywords</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="EiXtGvs" resname="1,586">
+        <source>1,586</source>
+        <target>1,586</target>
+      </trans-unit>
+      <trans-unit id="5JudCi4" resname="Jobs Posted">
+        <source>Jobs Posted</source>
+        <target>Jobs Posted</target>
+      </trans-unit>
+      <trans-unit id="FlaBYjE" resname="3,543">
+        <source>3,543</source>
+        <target>__3,543</target>
+      </trans-unit>
+      <trans-unit id="gdh_xXp" resname="Tasks Posted">
+        <source>Tasks Posted</source>
+        <target>Tasks Posted</target>
+      </trans-unit>
+      <trans-unit id="vTEwxHN" resname="1,232">
+        <source>1,232</source>
+        <target>1,232</target>
+      </trans-unit>
+      <trans-unit id=".KzLUXC" resname="Freelancers">
+        <source>Freelancers</source>
+        <target>Freelancers</target>
+      </trans-unit>
+      <trans-unit id="tNkAKGp" resname="Formulaire Contacts">
+        <source>Formulaire Contacts</source>
+        <target>Contacts Form</target>
+      </trans-unit>
+      <trans-unit id="4ZLYykQ" resname="Liste des entreprise">
+        <source>Liste des entreprise</source>
+        <target>List of companies</target>
+      </trans-unit>
+      <trans-unit id="_I2ovT8" resname="gestion des entreprises">
+        <source>gestion des entreprises</source>
+        <target>Business Management</target>
+      </trans-unit>
+      <trans-unit id="h.Ub8oS" resname="Gestion des Entreprises">
+        <source>Gestion des Entreprises</source>
+        <target>Business Management</target>
+      </trans-unit>
+      <trans-unit id="EhVukhv" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="ssEkU20" resname="Nom">
+        <source>Nom</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="wcEAnT8" resname="Update">
+        <source>Update</source>
+        <target>Update</target>
+      </trans-unit>
+      <trans-unit id="Xl0CFs4" resname="Supprimer">
+        <source>Supprimer</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="iC3cy83" resname="Notifier">
+        <source>Notifier</source>
+        <target>Notify</target>
+      </trans-unit>
+      <trans-unit id="M5W8HHk" resname="Formulaire ajout entreprise">
+        <source>Formulaire ajout entreprise</source>
+        <target>__Formulaire ajout entreprise</target>
+      </trans-unit>
+      <trans-unit id="c6Fp_PM" resname="Formulaire Update entreprise">
+        <source>Formulaire Update entreprise</source>
+        <target>Company Update Forme</target>
+      </trans-unit>
+      <trans-unit id="lplzXpH" resname="Liste des Candidats">
+        <source>Liste des Candidats</source>
+        <target>List of Candidates</target>
+      </trans-unit>
+      <trans-unit id="t8_nMCO" resname="Prenom">
+        <source>Prenom</source>
+        <target>Prenom</target>
+      </trans-unit>
+      <trans-unit id="RZid5J_" resname="Details">
+        <source>Details</source>
+        <target>Details</target>
+      </trans-unit>
+      <trans-unit id="OEOXHc." resname="ID">
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="hOzWMou" resname="Telephone">
+        <source>Telephone</source>
+        <target>Phone</target>
+      </trans-unit>
+      <trans-unit id="eeXPIN4" resname="Adresse">
+        <source>Adresse</source>
+        <target>Adress</target>
+      </trans-unit>
+      <trans-unit id="5l5l.el" resname="Date Inscription">
+        <source>Date Inscription</source>
+        <target>Date Registration</target>
+      </trans-unit>
+      <trans-unit id="rtER.gz" resname="Sexe">
+        <source>Sexe</source>
+        <target>Sex</target>
+      </trans-unit>
+      <trans-unit id="Obc3DzC" resname="Age">
+        <source>Age</source>
+        <target>Age</target>
+      </trans-unit>
+      <trans-unit id="1fnw2oA" resname="Date Naissance">
+        <source>Date Naissance</source>
+        <target>Birthday</target>
+      </trans-unit>
+      <trans-unit id="gtaYemu" resname="Formulaire ajout personne">
+        <source>Formulaire ajout personne</source>
+        <target>Personal addition form</target>
+      </trans-unit>
+      <trans-unit id="MlTtE3E" resname="Formulaire Update profile">
+        <source>Formulaire Update profile</source>
+        <target>Update profile form</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

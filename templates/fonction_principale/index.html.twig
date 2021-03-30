@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FonctionPrincipale index{% endblock %}
+
+{% block body %}
+    <h1>FonctionPrincipale</h1>
+
+    <div class="section search">
+        <h2 class="title">Rechercher</h2>
+        <form action="{{ path('searchAllfonctionprincipale') }}" method="post">
+            <input type="text" id="recherche" style="width: 80%;" name="mot" class="input is-default" placeholder="Search..."><button  style="float: right;width: 20%;" type="submit" class="button primary-button"><i class="fa fa-search"></i> </button>
+        </form>
+        <ul id="entitiesNav">
+            <div>
+                <a href="#" class="title" style="font-size: small">Resultat de la recherche<span class="fa arrow"></span> </a>
+
+            </div>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            $("#recherche").keyup(function(){
+                var minlength=1;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+                if(value.length>=minlength){
+                    $.ajax({
+                        url: "{{ path('searchfonctionprincipale') }}",
+                        method: "GET",
+                        data: {
+                            'q': value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            if(value===$(that).val()){
+                                var result =JSON.parse(msg);
+                                $.each(result, function(key,arr){
+                                    $.each(arr, function(id,value){
+                                        if (key==='posts'){
+                                            if (id!=='error'){
+                                                entitySelector.append('<div style="cursor: pointer;position: relative;left: -35px;"><a href="/emploi/'+id+'">'+'<b class="title" style="font-size: small;position: relative;bottom: 15px;">'+value[0]+'</b></a></div>');
+                                            }else{
+                                                entitySelector.append('<div class="errorLi" style="font-size: small">'+value+'</div>')
+                                            }
+                                        }
+                                    })
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdFonction</th>
+                <th>NomFonction</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fonction_principale in fonction_principales %}
+            <tr>
+                <td>{{ fonction_principale.idFonction }}</td>
+                <td>{{ fonction_principale.nomFonction }}</td>
+                <td>
+                    <a href="{{ path('fonction_principale_show', {'idFonction': fonction_principale.idFonction}) }}">show</a>
+                    <a href="{{ path('fonction_principale_edit', {'idFonction': fonction_principale.idFonction}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        {{ knp_pagination_render(fonction_principales) }}
+        </tbody>
+    </table>
+
+    <a href="{{ path('fonction_principale_new') }}">Create new</a>
+{% endblock %}

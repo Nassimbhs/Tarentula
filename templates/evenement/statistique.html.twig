@@ -1,0 +1,30 @@
+
+{% extends 'backend.html.twig' %}
+{% block body %}
+    {% block body2 %}
+    {% endblock %}
+    -
+    <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('Backoffice/js/jquery-2.1.4.min.js') }}"></script>
+
+    <script src="{{ asset('js/jquery.min..js') }}"></script>
+    <script src="{{ asset('js/Chart.js') }}"></script>
+    <script src="{{ asset('js/highcharts.js') }}"></script>
+    <script src="{{ asset('js/exporting.js') }}"></script>
+    <div class="w3-agile-chat">
+        <div class="charts">
+            <div class="col-md-4 w3l-char">
+                <h4 class="title">Statistique des evenements de  chaque mois</h4>
+                <div class="charts-grids widget" id="container" style="min-width: 400px; height: 400px; margin: 0 auto">
+
+                    <script type="text/javascript">     {{ chart(chart) }} </script>
+
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block body3 %}
+{% endblock %}

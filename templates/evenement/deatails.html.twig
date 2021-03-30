@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% trans %} Details{% endtrans %} {% endblock %}
+
+{% block body %}
+    <h1>{% trans %}Details {% endtrans %} {{ "de l'evenement" ~" "~ p.nom }}</h1>
+    <br>
+    <table>
+        <tr>
+            <p>{% trans %}Image {% endtrans %} : {{ p.image }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %} Lieu{% endtrans %} : {{ p.lieu }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %} Date{% endtrans %} : {{ p.date | date("d-m-y") }}</p>
+        </tr>
+
+        <tr>
+            <p>{% trans %}Organisateur {% endtrans %} : {{ p.organisateur}}</p>
+        </tr>
+
+        <tr>
+            <p> {% trans %} Type{% endtrans %} : {{ p.type.secteur }}</p>
+        </tr>
+
+        <tr>
+            <p> {% trans %} Description{% endtrans %} : {{ p.type.description}}</p>
+        </tr>
+
+        <br>
+
+    </table>
+
+{% endblock %}

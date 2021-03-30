@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    {% block body2 %}
+
+    {% endblock %}
+
+    <h1><pre>Votre avis compte !</pre></h1>
+<br>
+        <button onclick="openModal()"></button>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                {{ form(f) }}
+                <div class="close" onclick="closeModal()"></div>
+            </div>
+        </div>
+
+
+
+
+        <script src="{{ asset('js/modal.js') }}"></script>
+
+
+{% endblock %}
+{% block body3 %}
+
+{% endblock %}

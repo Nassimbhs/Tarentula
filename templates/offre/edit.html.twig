@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}Mise a jour de l'offre{% endblock %}
+
+{% block body %}
+
+    <h1>Mise a jour de l'offre</h1>
+    <br>
+    {{ include('offre/_form.html.twig', {'button_label': 'Update'}) }}
+    <br>
+
+    <a href="{{ path('offre_index') }}">back to list</a>
+
+{% endblock %}

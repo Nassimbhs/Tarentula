@@ -1,0 +1,66 @@
+{% extends 'backend.html.twig' %}
+
+    {% block titre %}
+        {% trans %} Liste des entreprise{% endtrans %}
+    {% endblock %}
+
+    {% block nav %}
+        {% trans %} gestion des entreprises{% endtrans %}
+    {% endblock %}
+
+{% block head %}
+    {% trans %} Gestion des Entreprises{% endtrans %}
+{% endblock %}
+
+{% block body %}
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+
+    <table>
+        <tr>
+            <th>{% trans %} Id{% endtrans %}</th>
+            <th> {% trans %} Nom{% endtrans %}</th>
+            <th>{% trans %} Email{% endtrans %}</th>
+            <th>{% trans %} Update{% endtrans %}</th>
+            <th>{% trans %} Supprimer{% endtrans %}</th>
+            <th>{% trans %} Notifier{% endtrans %}</th>
+        </tr>
+        {% for p in personne %}
+            <tr>
+
+                <td>
+                    {{ p.id }}
+                </td>
+                <td>
+                    {{ p.nom }}
+                </td>
+                <td>
+                    {{ p.email }}
+                </td>
+                <td>
+                    <a href="{{ path('entrepriseUpdate',{'id':p.id}) }}">{% trans %} Update{% endtrans %}</a>
+                </td>
+                <td>
+                    <a href="{{ path('entrepriseSupprime',{'id':p.id}) }}">{% trans %} Supprimer{% endtrans %}</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+    </body>
+    </html>
+
+
+{% endblock %}
