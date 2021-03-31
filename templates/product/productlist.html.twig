@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<body class="gray">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <body class="gray">
 
-<!-- Wrapper -->
+    <!-- Wrapper -->
 <div id="wrapper">
 
     <div class="clearfix"></div>
@@ -23,208 +23,261 @@
                 <div class="sidebar-container">
 
                     <!-- Location -->
+
+
+                    <script type="text/javascript"
+                            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                    <script type="text/javascript">
+                        jQuery(document).ready(function () {
+                            $("#recherche").keyup(function () {
+                                var minlength = 1;
+                                var that = this;
+                                var value = $(this).val();
+                                var entitySelector = $("#entitiesNav").html('');
+                                if (value.length >= minlength) {
+                                    $.ajax({
+                                        url: "{{ path('searchproduct') }}",
+                                        method: "GET",
+                                        data: {
+                                            'q': value
+                                        },
+                                        dataType: "text",
+                                        success: function (msg) {
+                                            if (value === $(that).val()) {
+                                                var result = JSON.parse(msg);
+                                                $.each(result, function (key, arr) {
+                                                    $.each(arr, function (id, value) {
+                                                        if (key === 'posts') {
+                                                            if (id !== 'error') {
+                                                                console.log(value[0])
+                                                                console.log(value[1])
+                                                                console.log(value[2])
+                                                                entitySelector.append('<a href="/detail/'+value[1]+'"><center>'+value[2]+'</center> <img src="/images/evenement/'+value[0]+'" style="width: 200px;height: 200px;"></a>');
+                                                            }else {
+                                                                entitySelector.append('<div class="header-notifications-headline">Aucune résultat trouvé</div>');
+                                                            }
+                                                        }
+                                                    })
+                                                })
+                                            }
+                                        }
+                                    })
+                                }
+                            })
+                        })
+                    </script>
+
+                    <div class="section search">
+                        <h2 class="title">Recherchez</h2>
+                        <form action="{{ path('searchproduct') }}" method="post">
+                            <input type="text" id="recherche" style="width: 80%;" name="mot" class="input is-default" placeholder="Recherchez...">{# <button  style="float: right;width: 20%;" type="submit" class="button primary-button"><i class="fa fa-search"></i> Search</button> #}
+                        </form>
+                        <ul id="entitiesNav">
+                            <div>
+                                <a href="#" class="title" style="font-size: small">Resultat de la recherche<span class="fa arrow"></span> </a>
+
+                            </div>
+                        </ul>
+                    </div>
+
+
+                    <!-- Category -->
+                    <div class="sidebar-widget js-filter-sorting">
+                        <h3>Categorie</h3>
+                        <select class="selectpicker default" multiple data-selected-text-format="count" data-size="7"
+                                title="All Categories">
+                            <option>Admin Support</option>
+                            <option>Customer Service</option>
+                            <option>Data Analytics</option>
+                            <option>Design & Creative</option>
+                            <option>Legal</option>
+                            <option>Software Developing</option>
+                            <option>IT & Networking</option>
+                            <option>Writing</option>
+                            <option>Translation</option>
+                            <option>Sales & Marketing</option>
+                        </select>
+                    </div>
+
+                    <!-- Keywords -->
                     <div class="sidebar-widget">
-                        <h3>Recherche</h3>
-                        <div class="input-with-icon">
-                            <div id="autocomplete-container">
-                                <form method="post" action="{{ path('search') }}">
-                                    <input type="text" placeholder="Nom Produit" name="search">
-                                    <input type="submit" value="Chercher" class="button ripple-effect"/>
-                                </form>
+                        <h3>Keywords</h3>
+                        <div class="keywords-container">
+                            <div class="keyword-input-container">
+                                <input type="text" class="keyword-input" placeholder="e.g. task title"/>
+                                <button class="keyword-input-button ripple-effect"><i
+                                            class="icon-material-outline-add"></i></button>
+                            </div>
+                            <div class="keywords-list"><!-- keywords go here --></div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Category -->
-                <div class="sidebar-widget js-filter-sorting">
-                    <h3>Categorie</h3>
-                    <select class="selectpicker default" multiple data-selected-text-format="count" data-size="7"
-                            title="All Categories">
-                        <option>Admin Support</option>
-                        <option>Customer Service</option>
-                        <option>Data Analytics</option>
-                        <option>Design & Creative</option>
-                        <option>Legal</option>
-                        <option>Software Developing</option>
-                        <option>IT & Networking</option>
-                        <option>Writing</option>
-                        <option>Translation</option>
-                        <option>Sales & Marketing</option>
-                    </select>
-                </div>
 
-                <!-- Keywords -->
-                <div class="sidebar-widget">
-                    <h3>Keywords</h3>
-                    <div class="keywords-container">
-                        <div class="keyword-input-container">
-                            <input type="text" class="keyword-input" placeholder="e.g. task title"/>
-                            <button class="keyword-input-button ripple-effect"><i
-                                        class="icon-material-outline-add"></i></button>
+                    <!-- Hourly Rate -->
+                    <div class="sidebar-widget">
+                        <h3>Hourly Rate</h3>
+                        <div class="margin-top-55"></div>
+
+                        <!-- Range Slider -->
+                        <input class="range-slider" type="text" value="" data-slider-currency="$" data-slider-min="10"
+                               data-slider-max="250" data-slider-step="5" data-slider-value="[10,250]"/>
+                    </div>
+
+                    <!-- max min price -->
+
+
+                    <!-- end max min price -->
+
+                    <!-- Tags -->
+                    <div class="sidebar-widget">
+                        <h3>Skills</h3>
+
+                        <div class="tags-container">
+                            <div class="tag">
+                                <input type="checkbox" id="tag1"/>
+                                <label for="tag1">front-end dev</label>
+                            </div>
+                            <div class="tag">
+                                <input type="checkbox" id="tag2"/>
+                                <label for="tag2">angular</label>
+                            </div>
+                            <div class="tag">
+                                <input type="checkbox" id="tag3"/>
+                                <label for="tag3">react</label>
+                            </div>
+                            <div class="tag">
+                                <input type="checkbox" id="tag4"/>
+                                <label for="tag4">vue js</label>
+                            </div>
+                            <div class="tag">
+                                <input type="checkbox" id="tag5"/>
+                                <label for="tag5">web apps</label>
+                            </div>
+                            <div class="tag">
+                                <input type="checkbox" id="tag6"/>
+                                <label for="tag6">design</label>
+                            </div>
+                            <div class="tag">
+                                <input type="checkbox" id="tag7"/>
+                                <label for="tag7">wordpress</label>
+                            </div>
                         </div>
-                        <div class="keywords-list"><!-- keywords go here --></div>
                         <div class="clearfix"></div>
-                    </div>
-                </div>
 
-
-                <!-- Hourly Rate -->
-                <div class="sidebar-widget">
-                    <h3>Hourly Rate</h3>
-                    <div class="margin-top-55"></div>
-
-                    <!-- Range Slider -->
-                    <input class="range-slider" type="text" value="" data-slider-currency="$" data-slider-min="10"
-                           data-slider-max="250" data-slider-step="5" data-slider-value="[10,250]"/>
-                </div>
-
-                <!-- max min price -->
-
-
-                <!-- end max min price -->
-
-                <!-- Tags -->
-                <div class="sidebar-widget">
-                    <h3>Skills</h3>
-
-                    <div class="tags-container">
-                        <div class="tag">
-                            <input type="checkbox" id="tag1"/>
-                            <label for="tag1">front-end dev</label>
-                        </div>
-                        <div class="tag">
-                            <input type="checkbox" id="tag2"/>
-                            <label for="tag2">angular</label>
-                        </div>
-                        <div class="tag">
-                            <input type="checkbox" id="tag3"/>
-                            <label for="tag3">react</label>
-                        </div>
-                        <div class="tag">
-                            <input type="checkbox" id="tag4"/>
-                            <label for="tag4">vue js</label>
-                        </div>
-                        <div class="tag">
-                            <input type="checkbox" id="tag5"/>
-                            <label for="tag5">web apps</label>
-                        </div>
-                        <div class="tag">
-                            <input type="checkbox" id="tag6"/>
-                            <label for="tag6">design</label>
-                        </div>
-                        <div class="tag">
-                            <input type="checkbox" id="tag7"/>
-                            <label for="tag7">wordpress</label>
+                        <!-- More Skills -->
+                        <div class="keywords-container margin-top-20">
+                            <div class="keyword-input-container">
+                                <input type="text" class="keyword-input" placeholder="add more skills"/>
+                                <button class="keyword-input-button ripple-effect"><i
+                                            class="icon-material-outline-add"></i></button>
+                            </div>
+                            <div class="keywords-list"><!-- keywords go here --></div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
 
-                    <!-- More Skills -->
-                    <div class="keywords-container margin-top-20">
-                        <div class="keyword-input-container">
-                            <input type="text" class="keyword-input" placeholder="add more skills"/>
-                            <button class="keyword-input-button ripple-effect"><i
-                                        class="icon-material-outline-add"></i></button>
-                        </div>
-                        <div class="keywords-list"><!-- keywords go here --></div>
-                        <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8 content-left-offset">
+
+                <h3 class="page-title">Rechercher résultats</h3>
+
+                <div class="notify-box margin-top-15">
+                    <div class="switch-container">
+                        <label class="switch"><input type="checkbox"><span class="switch-button"></span><span
+                                    class="switch-text">Turn on email alerts for this search</span></label>
+                    </div>
+
+                    <div class="sort-by">
+                        <form method="post" action="{{ path('trier') }}">
+                            <select name="trie">
+                                <option value="moins">Moins chère</option>
+                                <option value="plus">Plus chère</option>
+                            </select>
+                            <input type="submit" value="Trier">
+                        </form>
                     </div>
                 </div>
-                <div class="clearfix"></div>
 
-            </div>
-        </div>
-        <div class="col-xl-9 col-lg-8 content-left-offset">
+                <!-- Freelancers List Container -->
+                <div class="freelancers-container freelancers-grid-layout margin-top-35 js-filter-content">
+                    {% for message in app.flashes('info') %}
+                        <div class="alert alert-danger"
+                             style="width: 100%;text-align: center;font-size: 30px;font-weight: bolder;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    {% for p in products %}
+                        <!--Freelancer -->
+                        <div class="freelancer">
 
-            <h3 class="page-title">Rechercher résultats</h3>
+                            <!-- Overview -->
+                            <div class="freelancer-overview">
+                                <div class="freelancer-overview-inner">
 
-            <div class="notify-box margin-top-15">
-                <div class="switch-container">
-                    <label class="switch"><input type="checkbox"><span class="switch-button"></span><span
-                                class="switch-text">Turn on email alerts for this search</span></label>
-                </div>
+                                    <!-- Bookmark Icon -->
+                                    <span class="bookmark-icon"></span>
 
-                <div class="sort-by">
-                    <span>Sort by:</span>
-                    <select class="selectpicker hide-tick">
-                        <option>Relevance</option>
-                        <option>Newest</option>
-                        <option>Oldest</option>
-                        <option>Random</option>
-                    </select>
-                </div>
-            </div>
+                                    <!-- Avatar -->
+                                    <div class="freelancer-avatar">
+                                        <div class="verified-badge"></div>
+                                        <img src="\images\evenement\{{ p.image3 }}" alt="pas d'image">
+                                    </div>
 
-            <!-- Freelancers List Container -->
-            <div class="freelancers-container freelancers-grid-layout margin-top-35 js-filter-content">
-                {% for p in products %}
-                    <!--Freelancer -->
-                    <div class="freelancer">
+                                    <!-- Name -->
+                                    <div class="freelancer-name">
+                                        <h4><a href="single-freelancer-profile.html">{{ p.nom }} <img class="flag"
+                                                                                                      src="images/flags/gb.svg"
+                                                                                                      alt=""
+                                                                                                      title="United Kingdom"
+                                                                                                      data-tippy-placement="top"></a>
+                                        </h4>
+                                        <span>UI/UX Designer</span>
+                                    </div>
 
-                        <!-- Overview -->
-                        <div class="freelancer-overview">
-                            <div class="freelancer-overview-inner">
-
-                                <!-- Bookmark Icon -->
-                                <span class="bookmark-icon"></span>
-
-                                <!-- Avatar -->
-                                <div class="freelancer-avatar">
-                                    <div class="verified-badge"></div>
-                                    <img src="\images\evenement\{{ p.image3 }}" alt="pas d'image">
-                                </div>
-
-                                <!-- Name -->
-                                <div class="freelancer-name">
-                                    <h4><a href="single-freelancer-profile.html">{{ p.nom }} <img class="flag"
-                                                                                                  src="images/flags/gb.svg"
-                                                                                                  alt=""
-                                                                                                  title="United Kingdom"
-                                                                                                  data-tippy-placement="top"></a>
-                                    </h4>
-                                    <span>UI/UX Designer</span>
-                                </div>
-
-                                <!-- Rating -->
-                                <div class="freelancer-rating">
-                                    <div class="star-rating" data-rating="4.9"></div>
+                                    <!-- Rating -->
+                                    <div class="freelancer-rating">
+                                        <div class="star-rating" data-rating="4.9"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Details -->
-                        <div class="freelancer-details">
-                            <div class="freelancer-details-list">
-                                <center>
-                                    <ul>
-                                        <li>Prix <strong>{{ p.prix }} DT </strong></li>
-                                    </ul>
-                                </center>
-                                {% if app.user != null %}
-                                    <a href="{{ path('addpanier', {'id':p.id}) }} "
-                                       class="button button-sliding-icon ripple-effect" style="margin-bottom: 5px">
-                                        Ajouter au panier <i class="icon-material-outline-arrow-right-alt"></i></a>
-                                {% endif %}
+                            <!-- Details -->
+                            <div class="freelancer-details">
+                                <div class="freelancer-details-list">
+                                    <center>
+                                        <ul>
+                                            <li>Prix <strong>{{ p.prix }} DT </strong></li>
+                                        </ul>
+                                    </center>
+                                    {% if app.user != null %}
+                                        <a href="{{ path('addpanier', {'id':p.id}) }} "
+                                           class="button button-sliding-icon ripple-effect" style="margin-bottom: 5px">
+                                            Ajouter au panier <i class="icon-material-outline-arrow-right-alt"></i></a>
+                                    {% endif %}
+                                </div>
+                                <a href="{{ path('detail', {'id':p.id}) }}"
+                                   class="button button-sliding-icon ripple-effect">Voir le produit <i
+                                            class="icon-material-outline-arrow-right-alt"></i></a>
                             </div>
-                            <a href="{{ path('detail', {'id':p.id}) }}"
-                               class="button button-sliding-icon ripple-effect">Voir le produit <i
-                                        class="icon-material-outline-arrow-right-alt"></i></a>
                         </div>
+                        <!-- Freelancer / End -->
+                    {% endfor %}
+                </div>
+
+                <!-- Freelancers Container / End -->
+
+                <!-- Pagination -->
+                <div class="row">
+                    <div class="col-md-12 js-filter-pagination">
+                        <!-- Pagination -->
+                        {{ knp_pagination_render(products) }}
                     </div>
-                    <!-- Freelancer / End -->
-                {% endfor %}
-            </div>
-
-            <!-- Freelancers Container / End -->
-
-            <!-- Pagination -->
-            <div class="row">
-                <div class="col-md-12 js-filter-pagination">
-                    <!-- Pagination -->
-                    {{ knp_pagination_render(products) }}
                 </div>
+                <!-- Pagination / End -->
             </div>
-            <!-- Pagination / End -->
         </div>
     </div>
 </div>

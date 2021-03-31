@@ -313,5 +313,27 @@ class Personne implements UserInterface
         return $this;
     }
 
+    public function getProfil(): ?Profil
+    {
+        return $this->profil;
+    }
+
+    public function setProfil(?Profil $profil): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($profil === null && $this->profil !== null) {
+            $this->profil->setPersonne(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($profil !== null && $profil->getPersonne() !== $this) {
+            $profil->setPersonne($this);
+        }
+
+        $this->profil = $profil;
+
+        return $this;
+    }
+
 
 }

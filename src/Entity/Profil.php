@@ -301,4 +301,9 @@ class Profil
 
         return $this;
     }
+
+    public function getPersonne(): ?Personne
+    {
+        return $this->personne;
+    }
 }

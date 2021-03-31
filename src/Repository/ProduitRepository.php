@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-use App\Data\SearchData;
 use App\Entity\Produit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
@@ -21,6 +20,40 @@ class ProduitRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Produit::class);
     }
+
+
+    public function findByString($titre)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->where('a.nom LIKE :titre or a.image LIKE :titre')
+            ->setParameter( 'titre', "%$titre%")
+            ->setMaxResults(5)
+            ->getQuery()
+            ->execute()
+            ;
+    }
+
+    public function TriMin()
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->orderBy('a.prix','ASC')
+            ->getQuery()
+            ->execute()
+            ;
+    }
+
+    public function TriMax()
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->orderBy('a.prix','DESC')
+            ->getQuery()
+            ->execute()
+            ;
+    }
+
 
     // /**
     //  * @return Produit[] Returns an array of Produit objects

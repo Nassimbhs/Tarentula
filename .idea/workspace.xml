@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6af4818e-0a99-4369-a566-3d65fe767b9c" name="Default Changelist" comment="" />
+    <list default="true" id="6af4818e-0a99-4369-a566-3d65fe767b9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210329212036.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210330000806.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Membre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Membre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Personne.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personne.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminproduct/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/productlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/productlist.html.twig" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,13 +157,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config/packages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Repository" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\projet_final_v1\src\Repository" />
       <recent name="C:\wamp64\www\projet_final_v1\config\packages" />
     </key>
   </component>
@@ -188,12 +202,24 @@
       <workItem from="1616879138592" duration="27011000" />
       <workItem from="1617007204343" duration="21068000" />
       <workItem from="1617052746526" duration="14602000" />
-      <workItem from="1617119237144" duration="9921000" />
+      <workItem from="1617119237144" duration="35243000" />
+      <workItem from="1617195850443" duration="25991000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="45" key="#com.intellij.ide.util.MemberChooser" timestamp="1616526854400">
